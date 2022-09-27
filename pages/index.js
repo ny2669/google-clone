@@ -9,7 +9,7 @@ import Link from 'next/link'
   const [query, setQuery] = useState([])
   const [formInputs, setFormInputs] = useState({})
   const [wordInput,setWordInput] = useState('')
-console.log(query)
+
  
 
   const handleInput = (e) =>{
