@@ -42,6 +42,8 @@ let {name, value} = e.target
 
     router.push(`/search?term=${term}}`)
 
+    setWordInput('')
+
   }
 
 
@@ -55,7 +57,7 @@ let {name, value} = e.target
   <Header/>
  </header>
     <Form st={searchTerm} search={search} word={handleInput} query={wordInput} />
-    {/* {test} */}
+ 
 
     <footer>
       <Footer/>

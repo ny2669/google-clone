@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineAppstore } from 'react-icons/ai';
+import { IoIosKeypad } from "react-icons/io";
 
 const Header = () => {
   return (
@@ -11,8 +11,8 @@ const Header = () => {
       <div className='right'>
         <p>Gmail</p>
         <p>Images</p>
-        <span><AiOutlineAppstore/></span>
-        
+        <span>  <IoIosKeypad /></span>
+       <p className='letter'>N</p>
       </div>
 
 
