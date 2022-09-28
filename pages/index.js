@@ -1,16 +1,27 @@
-import React, {useState} from 'react'
+import React, { useRef, useState} from 'react'
 import Form from '../components/Form'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 
 
  const Home = ({results}) => {
+
+
+  const router = useRouter()
+  const searchTerm = useRef()
+
  
-  const [query, setQuery] = useState([])
+  // const [query, setQuery] = useState([])
   const [formInputs, setFormInputs] = useState({})
   const [wordInput,setWordInput] = useState('')
 
- 
+    // use ref
+
+
+
 
   const handleInput = (e) =>{
 let {name, value} = e.target
@@ -19,62 +30,55 @@ let {name, value} = e.target
 }
 
 
-  const search =  async (e) => {
+
+  const search = (e) => {
 
     e.preventDefault()
 
-    const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_API_KEY}&cx=400738df53d5c4fa7&q=${wordInput}`)
-    const data = await res.json()
-    
-    setQuery(data)
+    const term =  searchTerm.current.value
+
+
+ 
+
+    router.push(`/search?term=${term}}`)
 
   }
 
 
-  const test = query.items?.map(call => {
-
-    return(
-      <>
-      <div key={call.cacheId} className='card'>
-<div>
-<Link href={`/details`}><a>{call.displayLink}</a></Link>
-  <Link href={`/`}><h3>{call.title}</h3></Link>
-<p>{call.snippet}</p>
-</div>
-      </div>
-      
-      </>
-    )
-
-  })
 
  
 
 
   return (
     <>
- 
-    <Form search={search} word={handleInput} query={wordInput} />
-    {test}
+ <header>
+  <Header/>
+ </header>
+    <Form st={searchTerm} search={search} word={handleInput} query={wordInput} />
+    {/* {test} */}
+
+    <footer>
+      <Footer/>
+    </footer>
     </>
   )
 }
 
 export default Home
 
-export const getStaticProps = async (context) =>{
+// export const getStaticProps = async (context) =>{
 
 
 
-const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_API_KEY}&cx=400738df53d5c4fa7&q=${context.params}`)
-const data = await res.json()
+// const res = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_API_KEY}&cx=400738df53d5c4fa7&q=${context.params}`)
+// const data = await res.json()
 
 
-return{
-props:{
-  results: data
-}
+// return{
+// props:{
+//   results: data
+// }
  
-}
+// }
 
-}
+// }

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { GrSearch } from "react-icons/gr";
 
-const Form = ({query, word, search}) => {
+const Form = ({query, word, search, st}) => {
 
 
     
@@ -18,11 +18,13 @@ const Form = ({query, word, search}) => {
         <div>
             <form onSubmit={search}>
               <div className='form-outter'>
+                <span className='mag'>
                 <GrSearch className='searchIcon'/>
-                <input type='text' value={query} onChange={word} />
+                </span>
+                <input ref={st} type='text' value={query} onChange={word} className='input1'/>
                 </div>
                 <div className='button-group'>
-                  <button className='btn'>Google Search</button>
+                  <button onClick={search} className='btn'>Google Search</button>
                   <button className='btn'>Im Feeling Lucky</button>
                 </div>
             </form>

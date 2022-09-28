@@ -6,13 +6,13 @@ const Layout = ({children}) => {
   return (
     <>
     <header>
-<Header/>
+{/* <Header/> */}
     </header>
     <div>
         {children}
     </div>
     <footer>
-        <Footer/>
+        {/* <Footer/> */}
     </footer>
     </>
   )
