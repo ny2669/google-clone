@@ -10,8 +10,8 @@ const SearchResults = ({results}) => {
       <>
       <div key={call.cacheId} className='card'>
 <div>
-<Link href={`${call.displayLink}` }><a>{call.displayLink}</a></Link>
-  <Link href={`${call.displayLink}`}><a><h3>{call.title}</h3></a></Link>
+<a href={`${call.displayLink}`}>{call.displayLink}</a>
+  <a href={`${call.displayLink}`}><h3>{call.title}</h3></a>
 <p className='snippet'>{call.snippet}</p>
 </div>
       </div>
